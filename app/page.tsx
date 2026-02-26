@@ -34,6 +34,7 @@ import { JournalRules } from "@/components/journal-rules"
 import { TaxResultHistory } from "@/components/tax-result-history"
 import { TaxRules } from "@/components/tax-rules"
 import { ReportHistory } from "@/components/report-history"
+import { ReportTemplates } from "@/components/report-templates"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -218,7 +219,7 @@ export default function Page() {
       return <ReportHistory />
     }
     if (activeSubKey === "report-templates") {
-      return <PlaceholderContent label="报表模板管理" desc="管理利润表、资产负债表等报表模板，支持自定义模板" />
+      return <ReportTemplates />
     }
 
     // Risk pages

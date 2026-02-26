@@ -144,6 +144,8 @@ export function AppSidebar({ activePage, activeSubKey, onPageChange, onSubChange
 
   const reportTask = activeSubKey === "report-history"
     ? { task: "历史报表查询", detail: "逻辑校验：查询规则 30 条", progress: 100 }
+    : activeSubKey === "report-templates"
+    ? { task: "报表模板配置", detail: "逻辑校验：模板库 28 条", progress: 100 }
     : { task: "财务报表生成+合规校验", detail: "逻辑校验：匹配报表规则 18 条", progress: 50 }
 
   const taskInfo: Record<PageKey, { task: string; detail: string; progress: number }> = {
