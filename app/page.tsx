@@ -31,6 +31,7 @@ import { LedgerManagement } from "@/components/ledger-management"
 import { InvoiceHistory } from "@/components/invoice-history"
 import { JournalHistory } from "@/components/journal-history"
 import { JournalRules } from "@/components/journal-rules"
+import { TaxResultHistory } from "@/components/tax-result-history"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -183,7 +184,7 @@ export default function Page() {
       )
     }
     if (activeSubKey === "tax-result") {
-      return <PlaceholderContent label="算税结果" desc="查看所有历史算税结果，支持按周期和税种筛选" />
+      return <TaxResultHistory />
     }
     if (activeSubKey === "tax-rules") {
       return <PlaceholderContent label="算税规则管理" desc="管理各税种计算规则，支持新增自定义规则和导入模板" />
