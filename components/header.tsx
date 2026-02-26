@@ -25,10 +25,10 @@ export function Header({ ruleVersion = "V1.0" }: HeaderProps) {
       {/* 主标题行 */}
       <div className="flex items-center justify-between px-5 py-3">
         <div className="flex items-center gap-3">
-          <span className="text-xl font-bold tracking-tight text-sidebar-primary">
+          <span className="text-xl font-bold tracking-tight text-sidebar-primary" suppressHydrationWarning>
             {"📊"} 财务代账AI Agent
           </span>
-          <span className="rounded-full bg-sidebar-accent px-2.5 py-0.5 text-xs text-sidebar-accent-foreground">
+          <span className="rounded-full bg-sidebar-accent px-2.5 py-0.5 text-xs text-sidebar-accent-foreground" suppressHydrationWarning>
             私有化版
           </span>
         </div>
@@ -91,7 +91,7 @@ function StatusBadge({
   return (
     <span className={`flex items-center gap-1.5 ${colorMap[variant]}`}>
       {icon}
-      <span>{text}</span>
+      <span suppressHydrationWarning>{text}</span>
     </span>
   )
 }
