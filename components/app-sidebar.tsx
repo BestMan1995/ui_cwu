@@ -132,6 +132,8 @@ export function AppSidebar({ activePage, activeSubKey, onPageChange, onSubChange
 
   const journalTask = activeSubKey === "journal-done"
     ? { task: "分录数据查询", detail: "逻辑校验：查询规则 22 条", progress: 100 }
+    : activeSubKey === "journal-rules"
+    ? { task: "规则匹配校验", detail: "逻辑校验：规则库 38 条", progress: 100 }
     : { task: "分录规则匹配", detail: "逻辑校验：匹配财税规则 15 条", progress: 70 }
 
   const taskInfo: Record<PageKey, { task: string; detail: string; progress: number }> = {
