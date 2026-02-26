@@ -130,9 +130,13 @@ export function AppSidebar({ activePage, activeSubKey, onPageChange, onSubChange
     ? { task: "台账数据查询", detail: "逻辑校验：查询规则 18 条", progress: 100 }
     : { task: "发票解析校验", detail: "逻辑校验：匹配OCR规则 8 条", progress: 100 }
 
+  const journalTask = activeSubKey === "journal-done"
+    ? { task: "分录数据查询", detail: "逻辑校验：查询规则 22 条", progress: 100 }
+    : { task: "分录规则匹配", detail: "逻辑校验：匹配财税规则 15 条", progress: 70 }
+
   const taskInfo: Record<PageKey, { task: string; detail: string; progress: number }> = {
     invoice: invoiceTask,
-    journal: { task: "分录规则匹配", detail: "逻辑校验：匹配财税规则 15 条", progress: 70 },
+    journal: journalTask,
     tax: { task: "多税种核算+税负分析", detail: "逻辑校验：匹配算税规则 21 条", progress: 80 },
     report: { task: "财务报表生成+合规校验", detail: "逻辑校验：匹配报表规则 18 条", progress: 50 },
     risk: { task: "全维度风险识别+整改闭环", detail: "逻辑校验：匹配风控规则 25 条", progress: 100 },

@@ -29,6 +29,7 @@ import { RiskOperations } from "@/components/risk-operations"
 import { RiskBottomBar } from "@/components/risk-bottom-bar"
 import { LedgerManagement } from "@/components/ledger-management"
 import { InvoiceHistory } from "@/components/invoice-history"
+import { JournalHistory } from "@/components/journal-history"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -156,7 +157,7 @@ export default function Page() {
       )
     }
     if (activeSubKey === "journal-done") {
-      return <PlaceholderContent label="已生成分录" desc="查看所有已确认的会计分录，支持修改、删除和批量导出" />
+      return <JournalHistory />
     }
     if (activeSubKey === "journal-rules") {
       return <PlaceholderContent label="分录规则管理" desc="管理自动分录匹配规则，支持新增、编辑和禁用规则" />
