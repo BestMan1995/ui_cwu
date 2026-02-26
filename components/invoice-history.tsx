@@ -112,6 +112,14 @@ const allRecords: InvoiceRecord[] = [
 
 const PAGE_SIZE = 20
 
+/** Deterministic number formatting to avoid hydration mismatch from toLocaleString */
+function formatCurrency(n: number): string {
+  const fixed = n.toFixed(2)
+  const [intPart, decPart] = fixed.split(".")
+  const withCommas = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  return `${withCommas}.${decPart}`
+}
+
 const statusConfig: Record<ParseStatus, { label: string; className: string }> = {
   saved: { label: "已保存", className: "bg-emerald-50 text-emerald-700 border-emerald-200" },
   failed: { label: "解析失败", className: "bg-red-50 text-red-700 border-red-200" },
@@ -410,7 +418,7 @@ export function InvoiceHistory() {
                       {record.invoiceDate}
                     </TableCell>
                     <TableCell className="text-right font-mono text-xs tabular-nums">
-                      {record.amount !== null ? record.amount.toLocaleString("zh-CN", { minimumFractionDigits: 2 }) : "----"}
+                      {record.amount !== null ? formatCurrency(record.amount) : "----"}
                     </TableCell>
                     <TableCell className="text-right font-mono text-xs tabular-nums text-muted-foreground">
                       {record.taxRate !== null ? record.taxRate.toFixed(1) : "----"}
@@ -592,13 +600,13 @@ export function InvoiceHistory() {
             <div className="rounded-lg border border-border bg-card p-3">
               <p className="text-xs text-muted-foreground">含税金额合计</p>
               <p className="mt-1 text-lg font-bold tabular-nums text-foreground">
-                {stats.totalAmount.toLocaleString("zh-CN", { minimumFractionDigits: 2 })} 元
+                {formatCurrency(stats.totalAmount)} 元
               </p>
             </div>
             <div className="rounded-lg border border-border bg-card p-3">
               <p className="text-xs text-muted-foreground">税额合计</p>
               <p className="mt-1 text-lg font-bold tabular-nums text-foreground">
-                {stats.totalTax.toLocaleString("zh-CN", { minimumFractionDigits: 2 })} 元
+                {formatCurrency(stats.totalTax)} 元
               </p>
             </div>
             <div className="rounded-lg border border-border bg-card p-3">
@@ -714,7 +722,7 @@ export function InvoiceHistory() {
                 label="金额(元)"
                 value={
                   detailRecord.amount !== null
-                    ? detailRecord.amount.toLocaleString("zh-CN", { minimumFractionDigits: 2 })
+                    ? formatCurrency(detailRecord.amount)
                     : "----"
                 }
               />
