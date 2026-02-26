@@ -35,6 +35,7 @@ import { TaxResultHistory } from "@/components/tax-result-history"
 import { TaxRules } from "@/components/tax-rules"
 import { ReportHistory } from "@/components/report-history"
 import { ReportTemplates } from "@/components/report-templates"
+import { RiskLedger } from "@/components/risk-ledger"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -246,7 +247,7 @@ export default function Page() {
       )
     }
     if (activeSubKey === "risk-ledger") {
-      return <PlaceholderContent label="风险处置台账" desc="记录所有风险的处置过程和整改结果，支持跟踪闭环状态" />
+      return <RiskLedger />
     }
     if (activeSubKey === "risk-rules") {
       return <PlaceholderContent label="风控规则管理" desc="管理风险检测规则库，支持按风险等级和类型配置阈值" />
