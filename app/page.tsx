@@ -28,6 +28,7 @@ import { RiskDetailPanel } from "@/components/risk-detail-panel"
 import { RiskOperations } from "@/components/risk-operations"
 import { RiskBottomBar } from "@/components/risk-bottom-bar"
 import { LedgerManagement } from "@/components/ledger-management"
+import { InvoiceHistory } from "@/components/invoice-history"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -134,7 +135,7 @@ export default function Page() {
       )
     }
     if (activeSubKey === "invoice-history") {
-      return <PlaceholderContent label="历史解析台账" desc="查看所有已解析的发票记录，支持搜索、筛选和导出" />
+      return <InvoiceHistory />
     }
 
     // Journal pages

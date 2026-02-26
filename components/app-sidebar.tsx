@@ -126,8 +126,12 @@ interface AppSidebarProps {
 export function AppSidebar({ activePage, activeSubKey, onPageChange, onSubChange }: AppSidebarProps) {
   const [expandedKeys, setExpandedKeys] = useState<Set<PageKey>>(() => new Set([activePage]))
 
+  const invoiceTask = activeSubKey === "invoice-history"
+    ? { task: "台账数据查询", detail: "逻辑校验：查询规则 18 条", progress: 100 }
+    : { task: "发票解析校验", detail: "逻辑校验：匹配OCR规则 8 条", progress: 100 }
+
   const taskInfo: Record<PageKey, { task: string; detail: string; progress: number }> = {
-    invoice: { task: "发票解析校验", detail: "逻辑校验：匹配OCR规则 8 条", progress: 100 },
+    invoice: invoiceTask,
     journal: { task: "分录规则匹配", detail: "逻辑校验：匹配财税规则 15 条", progress: 70 },
     tax: { task: "多税种核算+税负分析", detail: "逻辑校验：匹配算税规则 21 条", progress: 80 },
     report: { task: "财务报表生成+合规校验", detail: "逻辑校验：匹配报表规则 18 条", progress: 50 },
