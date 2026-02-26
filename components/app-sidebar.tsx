@@ -138,6 +138,8 @@ export function AppSidebar({ activePage, activeSubKey, onPageChange, onSubChange
 
   const taxTask = activeSubKey === "tax-result"
     ? { task: "算税结果查询", detail: "逻辑校验：查询规则 25 条", progress: 100 }
+    : activeSubKey === "tax-rules"
+    ? { task: "算税规则匹配", detail: "逻辑校验：规则库 42 条", progress: 100 }
     : { task: "多税种核算+税负分析", detail: "逻辑校验：匹配算税规则 21 条", progress: 80 }
 
   const taskInfo: Record<PageKey, { task: string; detail: string; progress: number }> = {

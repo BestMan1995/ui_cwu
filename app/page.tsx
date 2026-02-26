@@ -32,6 +32,7 @@ import { InvoiceHistory } from "@/components/invoice-history"
 import { JournalHistory } from "@/components/journal-history"
 import { JournalRules } from "@/components/journal-rules"
 import { TaxResultHistory } from "@/components/tax-result-history"
+import { TaxRules } from "@/components/tax-rules"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -187,7 +188,7 @@ export default function Page() {
       return <TaxResultHistory />
     }
     if (activeSubKey === "tax-rules") {
-      return <PlaceholderContent label="算税规则管理" desc="管理各税种计算规则，支持新增自定义规则和导入模板" />
+      return <TaxRules />
     }
 
     // Report pages
