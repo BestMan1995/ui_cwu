@@ -33,6 +33,7 @@ import { JournalHistory } from "@/components/journal-history"
 import { JournalRules } from "@/components/journal-rules"
 import { TaxResultHistory } from "@/components/tax-result-history"
 import { TaxRules } from "@/components/tax-rules"
+import { ReportHistory } from "@/components/report-history"
 import { Shield } from "lucide-react"
 
 // Default sub-key for each page
@@ -214,7 +215,7 @@ export default function Page() {
       )
     }
     if (activeSubKey === "report-history") {
-      return <PlaceholderContent label="历史报表台账" desc="查看所有已生成报表，支持搜索、下载和对比分析" />
+      return <ReportHistory />
     }
     if (activeSubKey === "report-templates") {
       return <PlaceholderContent label="报表模板管理" desc="管理利润表、资产负债表等报表模板，支持自定义模板" />

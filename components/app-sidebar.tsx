@@ -142,11 +142,15 @@ export function AppSidebar({ activePage, activeSubKey, onPageChange, onSubChange
     ? { task: "算税规则匹配", detail: "逻辑校验：规则库 42 条", progress: 100 }
     : { task: "多税种核算+税负分析", detail: "逻辑校验：匹配算税规则 21 条", progress: 80 }
 
+  const reportTask = activeSubKey === "report-history"
+    ? { task: "历史报表查询", detail: "逻辑校验：查询规则 30 条", progress: 100 }
+    : { task: "财务报表生成+合规校验", detail: "逻辑校验：匹配报表规则 18 条", progress: 50 }
+
   const taskInfo: Record<PageKey, { task: string; detail: string; progress: number }> = {
     invoice: invoiceTask,
     journal: journalTask,
     tax: taxTask,
-    report: { task: "财务报表生成+合规校验", detail: "逻辑校验：匹配报表规则 18 条", progress: 50 },
+    report: reportTask,
     risk: { task: "全维度风险识别+整改闭环", detail: "逻辑校验：匹配风控规则 25 条", progress: 100 },
     ledger: { task: "账套数据管理", detail: "台账汇总 / 权限配置 / 数据维护", progress: 100 },
   }
